@@ -8,17 +8,11 @@ import {
   ImageBackground,
 } from "react-native";
 
-import {
-  BoldText,
-  MediumText,
-  RegularText,
-  SemiBoldText,
-} from "@/components/StyledText";
+import { MediumText, RegularText, SemiBoldText } from "@/components/StyledText";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 import ReAnimated, { FadeInUp } from "react-native-reanimated";
 import { useRef } from "react";
-import { LinearGradient } from "expo-linear-gradient";
 import VisaIcon from "@/components/Icons/VisaIcon";
 const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
@@ -52,15 +46,12 @@ export default function TabOneScreen() {
         entering={FadeInUp}
         style={[
           {
-            height: 100,
             backgroundColor: "#3BB6BE",
-            width: "100%",
-            borderTopLeftRadius: 30,
           },
           styles.link,
         ]}
       >
-        <MediumText style={styles.linkText}>Ingresar</MediumText>
+        <MediumText style={styles.linkText}>Ingresos</MediumText>
         <MediumText style={styles.linkText}>
           + ₲ 7.025.058 <AntDesign name="right" size={12} color="white" />
         </MediumText>
@@ -69,10 +60,7 @@ export default function TabOneScreen() {
         entering={FadeInUp}
         style={[
           {
-            height: 100,
             backgroundColor: "#61259F",
-            width: "100%",
-            borderTopLeftRadius: 30,
             marginTop: -35,
           },
           styles.link,
@@ -87,10 +75,7 @@ export default function TabOneScreen() {
         entering={FadeInUp}
         style={[
           {
-            height: 100,
             backgroundColor: "#E2066D",
-            width: "100%",
-            borderTopLeftRadius: 30,
             marginTop: -35,
           },
           styles.link,
@@ -103,23 +88,12 @@ export default function TabOneScreen() {
       </ReAnimated.View>
       <ReAnimated.View
         entering={FadeInUp}
-        style={{
-          flex: 1,
-          backgroundColor: "#fff",
-          width: "100%",
-          borderTopLeftRadius: 30,
-          flexDirection: "column",
-          gap: 10,
-          marginTop: -35,
-          paddingTop: 38,
-          paddingBottom: 100,
-        }}
+        style={styles.relevantContentContainer}
       >
         <View style={{ width: "100%", paddingHorizontal: 38 }}>
           <MediumText style={{ color: "#60708F", fontSize: 16 }}>
             CUENTAS
           </MediumText>
-
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
@@ -231,7 +205,7 @@ export default function TabOneScreen() {
                     flexDirection: "column",
                     opacity: titleOpacity,
                     marginBottom: 10,
-                    transform: [{ scaleY: titleOpacity }],
+                    transform: [{ scale: titleOpacity }],
                   }}
                 >
                   <RegularText
@@ -315,14 +289,28 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.light.background,
   },
   link: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    height: 100,
+    width: "100%",
     paddingTop: 20,
     paddingHorizontal: 38,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderTopLeftRadius: 30,
   },
   linkText: {
     color: "white",
     fontSize: 16,
+  },
+  relevantContentContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    width: "100%",
+    borderTopLeftRadius: 30,
+    flexDirection: "column",
+    gap: 10,
+    marginTop: -35,
+    paddingTop: 38,
+    paddingBottom: 100,
   },
   card: {
     width: CARD_WIDTH,
